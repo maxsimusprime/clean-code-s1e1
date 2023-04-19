@@ -13,7 +13,7 @@ body {
 .aaa img {
   width: 100%;
 }
-.aaa .more-inf {
+.more-inf {
   font-family: fantasy, cursive;
 }
 
@@ -39,10 +39,8 @@ ul {
   margin:0;
   padding: 0px;
 }
-li, h3 {
-  -style:none;
-}
-input,button{
+input,
+button{
   outline:none;
 }
 button {
@@ -58,8 +56,7 @@ button:hover {
   color: #3a3a3a;
 }
 /* Heading */
-h3,
-label[for="new-task"] {
+h3 {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -85,10 +82,6 @@ input[type="text"]:focus {
 }
 
 /* New Task */
-label[for="new-task"] {
-  display: block;
-  margin: 0 0 20px;
-}
 input#new-task {
   width: 318px;
 }
