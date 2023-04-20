@@ -15,48 +15,22 @@ var completedTasksHolder=document.getElementById('completed-tasks');//completed-
 
 
 //New task list item
-var createNewTaskElement = function(taskString) {
+const createNewTaskElement = function(taskString) {
 
-  var listItem=document.createElement('li');
+  let listItem = document.createElement('li');
+  listItem.classList.add('task-item');
 
-  //input (checkbox)
-  var checkBox=document.createElement('input');//checkbx
-  //label
-  var label=document.createElement('label');//label
-  //input (text)
-  var editInput=document.createElement('input');//text
-  //button.edit
-  var editButton=document.createElement('button');//edit button
+  listItem.innerHTML = `
+    <input type="checkbox" class="task-checkbox">
+    <label class="task task-label">${taskString}</label>
+    <input type="text" class="task task-text">
+    <button class="edit button">Edit</button>
+    <button class="delete button">
+      <img class="button-image" src="./remove.svg" alt="remove icon">
+    </button>`;
 
-  //button.delete
-  var deleteButton=document.createElement('button');//delete button
-  var deleteButtonImg=document.createElement('img');//delete button image
-
-  label.innerText=taskString;
-  label.className='task';
-
-  //Each elements, needs appending
-  checkBox.type='checkbox';
-  editInput.type='text';
-  editInput.className='task';
-
-  editButton.innerText='Edit'; //innerText encodes special characters, HTML does not.
-  editButton.className='edit';
-
-  deleteButton.className='delete';
-  deleteButtonImg.src='./remove.svg';
-  deleteButton.appendChild(deleteButtonImg);
-
-
-  //and appending.
-  listItem.appendChild(checkBox);
-  listItem.appendChild(label);
-  listItem.appendChild(editInput);
-  listItem.appendChild(editButton);
-  listItem.appendChild(deleteButton);
   return listItem;
 }
-
 
 
 var addTask=function(){
@@ -82,7 +56,7 @@ var editTask=function(){
 
   var listItem=this.parentNode;
 
-  var editInput=listItem.querySelector('input[type=text]');
+  var editInput=listItem.querySelector('.task-text');
   var label=listItem.querySelector('label');
   var editBtn=listItem.querySelector('.edit');
   var containsClass=listItem.classList.contains('edit-mode');
